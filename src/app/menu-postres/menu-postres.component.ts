@@ -40,7 +40,7 @@ export class MenuPostresComponent {
     if (this.postreSeleccionado === 'todos') {
       this.postresFiltrado = this.postres;
     } else {
-      this.postresFiltrado = this.postres.filter(postre => postre.categoria === this.postreSeleccionado);
+ 
     }
   }
   
