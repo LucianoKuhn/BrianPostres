@@ -38,9 +38,9 @@ export class MenuPostresComponent {
   
   filtrarPostres(){
     if (this.postreSeleccionado === 'todos') {
-      this.postresFiltrado = this.postres;
+      this.postresFiltrado = this.postres;;
     } else {
- 
+      this.postresFiltrado = this.postres;
     }
   }
   
