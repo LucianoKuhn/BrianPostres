@@ -1,0 +1,40 @@
+<div class="container menu mt-5">
+  <img
+    src="../assets/img/logo.png"
+    alt="logo"
+    class="img_logo pt-3 mx-auto d-block"
+  />
+  <h1 class="h1-menu text-center rounded-pill">Carta de Precios</h1>
+
+  <select class="" name="selectorPostres" [(ngModel)]="postreSeleccionado" (change)="filtrarPostres()">
+    <option value="aa" disabled >Filtrar por categoria</option>
+    <option value="todos">Todos</option>
+    <option value="dulce">Dulces</option>
+    <option value="salado">Salados</option>
+    <option value="tortas">Tortas</option>
+    <option value="galletitas">Galletitas</option>
+  </select>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
+      <div class="col-6" *ngFor="let postre of postresFiltrado">
+      
+          <div class="card">
+            <img [src]="postre.img" class="card-img-top img_dim" alt="..." />
+            <div class="contenedor_titulo">
+              <h5 class="texto_tarjeta">{{ postre.nombre }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item contenedor_precio">
+                ${{ postre.precio }}
+              </li>
+              <li class="list-group-item contenedor_precio">
+                {{ postre.porcion }}
+              </li>
+            </ul>
+          </div>
+     
+      </div>
+    </div>
+  </div>
+</div>

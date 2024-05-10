@@ -1,0 +1,53 @@
+
+.img_logo {
+    width: 60px;
+    height: 80px;
+  }
+  
+  .menu {
+    background-color: rgb(255, 243, 231);
+    border-radius: 40px;
+    box-shadow: -0.5px 0px 5px black;
+  }
+  
+  .h1-menu {
+    font-size: 18px;
+    border: 3px solid black;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #fdcb96;
+    font-family: "Bowlby One SC", sans-serif;
+  }
+  
+  .texto_tarjeta {
+    font-size: 30px;
+    margin-top: 3px;
+    font-family: "Oregano", cursive;
+  }
+  .contenedor_titulo {
+    background-color: #fcbd7a;
+  }
+  .contenedor_precio {
+    background-color: rgb(197, 249, 232);
+    font-family: "Poetsen One", sans-serif;
+    font-size: 20px;
+  }
+  
+  .card {
+    margin-bottom: 10px;
+    background-color: black;
+  }
+  
+  @media (max-width: 767px) {
+    .img_logo {
+      width: 40px;
+      height: 60px;
+    }
+    .contenedor_precio {
+      font-size: 10px;
+    }
+    .texto_tarjeta {
+      font-size: 20px;
+    }
+  }
+  

@@ -1,0 +1,13 @@
+body {
+  background: #d38634;
+}
+
+.nav_text {
+  font-size: 15px;
+  font-family: "Merienda", cursive;
+}
+
+.navbar {
+  background-image: linear-gradient(to right, #fdcb96, #fdc486);
+  box-shadow: -0.5px 0px 5px black;
+}
