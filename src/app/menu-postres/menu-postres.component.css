@@ -37,6 +37,18 @@
     margin-bottom: 10px;
     background-color: black;
   }
+
+  .div_select{
+    align-items: center;
+    width: 300px;
+
+  }
+  .div_select > select{
+    font-size: 20px;
+    font-family: "Poetsen One", sans-serif;
+    background-color: #fdcb96;
+  }
+ 
   
   @media (max-width: 767px) {
     .img_logo {

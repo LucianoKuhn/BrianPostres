@@ -14,12 +14,13 @@ export class MenuPostresComponent {
   precio:string = "";
   porcion:string = "";
   img:string = "";
-  postreSeleccionado="salado";
+  postreSeleccionado="";
   
 
  
   constructor(private readonly dataService: DataService) {
     this.getPostres();
+    this.postreSeleccionado="aa";
   }
   async getPostres() {
     this.dataService
@@ -28,7 +29,7 @@ export class MenuPostresComponent {
     
           this.postres = postres;
           console.log("postres:",postres);
-    
+          this.filtrarPostres();
       })
       .catch((error: any) => console.log(error));
   }
@@ -37,11 +38,13 @@ export class MenuPostresComponent {
   }
   
   filtrarPostres(){
-    if (this.postreSeleccionado === 'todos') {
+    console.log(this.postreSeleccionado)
+    if (this.postreSeleccionado === 'todos' ||this.postreSeleccionado === 'aa' ) {
       this.postresFiltrado = this.postres;
-    } else {
-      this.postresFiltrado = this.postres;
-    }
+    } else {  
+      this.postresFiltrado = this.postres.filter((postre: any) => postre.categoria === this.postreSeleccionado);
+
+      }
   }
   
 
