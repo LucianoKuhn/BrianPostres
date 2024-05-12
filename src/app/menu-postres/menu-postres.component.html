@@ -7,12 +7,14 @@
   <h1 class="h1-menu text-center rounded-pill">Carta de Precios</h1>
 
   <div class="container div_select">
+    <i class="fa-solid fa-sort"></i>
     <select
     class="form-select"
     name="selectorPostres"
     [(ngModel)]="postreSeleccionado"
     (change)="filtrarPostres()"
   >
+
     <option value="aa" disabled>Filtrar por categoria</option>
     <option value="todos">Todos</option>
     <option value="dulce">Dulces</option>
@@ -24,7 +26,7 @@
   </div>
  
 
-  <div class="container">
+  <div class="container borde">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
       <div class="col-6" *ngFor="let postre of postresFiltrado">
         <div class="card">
@@ -45,6 +47,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- <div class="container">
   <h1> Agregar postre </h1>

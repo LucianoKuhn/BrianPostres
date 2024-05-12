@@ -11,3 +11,15 @@ body {
   background-image: linear-gradient(to right, #fdcb96, #fdc486);
   box-shadow: -0.5px 0px 5px black;
 }
+.footer{
+ margin-bottom: -20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fdc486;
+  display: block;
+  color: black;
+  font-size: 12px;
+  text-align: center;
+ 
+}

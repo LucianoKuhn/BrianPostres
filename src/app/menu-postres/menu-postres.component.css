@@ -8,6 +8,8 @@
     background-color: rgb(255, 243, 231);
     border-radius: 40px;
     box-shadow: -0.5px 0px 5px black;
+    height:1850px;
+    margin-bottom: 40px;
   }
   
   .h1-menu {
@@ -41,6 +43,8 @@
   .div_select{
     align-items: center;
     width: 300px;
+    display: flex;
+    margin-bottom: 5px;
 
   }
   .div_select > select{
@@ -48,6 +52,10 @@
     font-family: "Poetsen One", sans-serif;
     background-color: #fdcb96;
   }
+.borde{
+  border-top:1px solid black;
+}
+ 
  
   
   @media (max-width: 767px) {
