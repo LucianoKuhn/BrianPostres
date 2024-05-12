@@ -28,7 +28,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
       <div class="col-6" *ngFor="let postre of postresFiltrado">
         <div class="card">
-          <img [src]="postre.img" class="card-img-top img_dim" alt="..." />
+          <img [src]="postre.img" class="card-img-top img_dim" alt="postres" loading="lazy" />
           <div class="contenedor_titulo">
             <h5 class="texto_tarjeta">{{ postre.nombre }}</h5>
           </div>
