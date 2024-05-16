@@ -7,7 +7,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 import { MenuPostresComponent } from './menu-postres/menu-postres.component';
@@ -28,6 +28,8 @@ import { MenuPostresComponent } from './menu-postres/menu-postres.component';
    
     provideStorage(() => getStorage()),
     FormsModule,
+    NgxSkeletonLoaderModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
