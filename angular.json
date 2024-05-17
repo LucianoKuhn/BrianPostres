@@ -67,12 +67,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "BrianPostresApp:build"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "BrianPostresApp:build:production"
+              "browserTarget": "BrianPostresApp:build:production"
             },
             "development": {
-              "buildTarget": "BrianPostresApp:build:development"
+              "browserTarget": "BrianPostresApp:build:development"
             }
           },
           "defaultConfiguration": "development"

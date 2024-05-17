@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MenuPostresComponent } from './menu-postres/menu-postres.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'; // Importa desde aquí
 import { StorageModule } from '@angular/fire/storage';
 
 @NgModule({
