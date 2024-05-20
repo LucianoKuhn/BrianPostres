@@ -1,0 +1,12 @@
+.footer{
+    margin-bottom: -20px;
+    bottom: 0;
+    font-family: "Lekton", monospace;
+    left: 0;
+    width: 100%;
+    background-color: #fdc486;
+    display: block;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+}

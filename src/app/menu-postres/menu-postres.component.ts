@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 
+import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-menu-postres',
   templateUrl: './menu-postres.component.html',
@@ -16,7 +18,7 @@ export class MenuPostresComponent {
   img: string = '';
   postreSeleccionado = '';
 
-  constructor(private readonly dataService: DataService) {
+  constructor(private readonly dataService: DataService, private cdr:ChangeDetectorRef) {
     this.getPostres();
     this.postreSeleccionado = 'aa';
   }
@@ -40,17 +42,20 @@ export class MenuPostresComponent {
     this.dataService.crerPostre(nombre, precio, porcion, img, categoria);
   }
 
+
   filtrarPostres() {
     console.log(this.postreSeleccionado);
-    if (
-      this.postreSeleccionado === 'todos' ||
-      this.postreSeleccionado === 'aa'
-    ) {
-      this.postresFiltrado = this.postres;
+    if (this.postreSeleccionado === 'todos' || this.postreSeleccionado === 'aa') {
+      this.postresFiltrado = null; 
+      setTimeout(() => this.postresFiltrado = [...this.postres], 0);
+
     } else {
       this.postresFiltrado = this.postres.filter(
         (postre: any) => postre.categoria === this.postreSeleccionado
       );
+    
+   
     }
   }
+ 
 }

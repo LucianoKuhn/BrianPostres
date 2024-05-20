@@ -8,7 +8,6 @@
     background-color: rgb(255, 243, 231);
     border-radius: 40px;
     box-shadow: -0.5px 0px 5px black;
-    height:2100px;
     margin-bottom: 40px;
   }
   
@@ -70,8 +69,6 @@
     .texto_tarjeta {
       font-size: 20px;
     }
-    .menu {
-      height:1850px;
-    }
+
   }
   
