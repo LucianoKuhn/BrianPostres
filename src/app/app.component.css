@@ -11,3 +11,11 @@ body {
   background-image: linear-gradient(to right, #fdcb96, #fdc486);
   box-shadow: -0.5px 0px 5px black;
 }
+
+.navbar ul li:last-child {
+  margin-left: auto; /* Mueve el último elemento a la derecha (final) del navbar */
+}
+
+#last-li{
+  list-style-type: none;
+}

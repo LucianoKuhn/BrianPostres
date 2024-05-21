@@ -35,19 +35,17 @@
             ></a
           >
         </li>
+        <br />
       </ul>
+
+      <li class="nav-item ms-auto" id="last-li">
+        <a routerLink="ingresar" class="nav-link" href="" 
+          ><strong
+            ><i class="fa-solid fa-right-to-bracket"></i> Ingresar</strong
+          ></a
+        >
+      </li>
     </div>
   </div>
 </nav>
-
-<app-menu-postres></app-menu-postres>
-
-<div class="item">
-  @defer {
-  <app-footer></app-footer>
-  } @placeholder (minimum 8000ms) {
-    <ngx-skeleton-loader [animation]="false"  [theme]="{ height: '0px'}" />
-  }
-</div>
-
-
+<router-outlet></router-outlet>

@@ -54,7 +54,7 @@
                 </li> -->
             </ul>
           </div>
-          } @placeholder (minimum 2000ms) {
+          } @placeholder (minimum 1000ms) {
           <ngx-skeleton-loader
             [appearance]="''"
             [animation]="'pulse'"
@@ -66,6 +66,16 @@
     </div>
   </div>
 </div>
+
+<div class="item">
+  @defer {
+  <app-footer></app-footer>
+  } @placeholder (minimum 5000ms) {
+    <ngx-skeleton-loader [animation]="false"  [theme]="{ height: '0px'}" />
+  }
+</div>
+
+
 
  <!-- <div class="container">
   <h1> Agregar postre </h1>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 interface postresInterface{
@@ -18,4 +19,7 @@ interface postresInterface{
 export class AppComponent {
   title = 'BrianPostresApp';
  
+  constructor(private router:Router){
+  }
+
 }
