@@ -19,3 +19,14 @@ body {
 #last-li{
   list-style-type: none;
 }
+
+@media (max-width: 767px) {
+  #ig_nav{
+    margin-top: -12px;
+  }
+ #wsp_nav{
+  margin-top: -10px;
+ }
+
+}
+

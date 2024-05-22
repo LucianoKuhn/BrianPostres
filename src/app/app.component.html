@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <div class="nav_text"><strong>BrianPostres | </strong></div>
+    <a class="nav_text nav-link" routerLink=""
+      ><strong>BrianPostres | </strong></a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -14,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item" id="wsp_nav">
           <a
             class="nav-link"
             href="https://wa.me/3446228618/?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido"
@@ -25,7 +27,7 @@
             ></a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="ig_nav">
           <a
             class="nav-link"
             target="_blank"
@@ -37,9 +39,8 @@
         </li>
         <br />
       </ul>
-
       <li class="nav-item ms-auto" id="last-li">
-        <a routerLink="ingresar" class="nav-link" href="" 
+        <a routerLink="ingresar" class="nav-link" href=""
           ><strong
             ><i class="fa-solid fa-right-to-bracket"></i> Ingresar</strong
           ></a
