@@ -13,6 +13,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { LoginComponent } from './components/sesiones/login/login.component';
 import { RegisterComponent } from './components/sesiones/register/register.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,14 +27,15 @@ import { RegisterComponent } from './components/sesiones/register/register.compo
     StorageModule,
     FormsModule,
     NgxSkeletonLoaderModule,
+    ReactiveFormsModule,
+    
 
   ],
   providers: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage())
-
+    provideStorage(() => getStorage()),
   ],
   bootstrap: [AppComponent],
 })
