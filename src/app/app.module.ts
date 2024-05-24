@@ -14,13 +14,14 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { LoginComponent } from './components/sesiones/login/login.component';
 import { RegisterComponent } from './components/sesiones/register/register.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ControlPostresComponent } from './components/menu-postres/control-postres/control-postres.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent,FooterComponent, MenuPostresComponent, LoginComponent, RegisterComponent ],
+  declarations: [AppComponent,FooterComponent, MenuPostresComponent, LoginComponent, RegisterComponent, ControlPostresComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,8 +29,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NgxSkeletonLoaderModule,
     ReactiveFormsModule,
-    
-
   ],
   providers: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),

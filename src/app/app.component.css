@@ -13,20 +13,18 @@ body {
 }
 
 .navbar ul li:last-child {
-  margin-left: auto; /* Mueve el último elemento a la derecha (final) del navbar */
+  margin-left: auto; 
 }
 
-#last-li{
+#last-li {
   list-style-type: none;
 }
 
 @media (max-width: 767px) {
-  #ig_nav{
+  #ig_nav {
     margin-top: -12px;
   }
- #wsp_nav{
-  margin-top: -10px;
- }
-
+  #wsp_nav {
+    margin-top: -10px;
+  }
 }
-

@@ -53,6 +53,13 @@
   border-top: 1px solid black;
 }
 
+.botonControlAdmin{
+  width: 400px;
+  height: 60px;
+  font-size: 20px;
+  font-family: "Poetsen One", sans-serif;
+}
+
 @media (max-width: 767px) {
   .img_logo {
     width: 40px;
@@ -64,5 +71,4 @@
   .texto_tarjeta {
     font-size: 20px;
   }
-
 }

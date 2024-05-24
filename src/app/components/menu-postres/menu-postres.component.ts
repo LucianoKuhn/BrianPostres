@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 import { ChangeDetectorRef } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-menu-postres',
@@ -11,17 +13,39 @@ import { ChangeDetectorRef } from '@angular/core';
 export class MenuPostresComponent {
   postres: any = {};
   postresFiltrado: any = {};
-  nombre: string = '';
-  categoria: string = '';
-  precio: string = '';
-  porcion: string = '';
-  img: string = '';
   postreSeleccionado = '';
+  administrador = false;
+  mostrarCompAdmin = false;
 
-  constructor(private readonly dataService: DataService, private cdr:ChangeDetectorRef) {
+  constructor(
+    private readonly dataService: DataService,
+    private userService: UserService,
+    private storegeService: StorageService
+  ) {
     this.getPostres();
     this.postreSeleccionado = 'aa';
+    this.comprobarAdmin();
   }
+
+  async comprobarAdmin() {
+    try {
+      const email = await this.userService.getCurrentUserEmail();
+      console.log('Email: ', email);
+      if (email === 'brianschmunk04@gmail.com') {
+        this.administrador = true;
+      }
+    } catch (error) {
+      console.error('Error obtaining email:', error);
+    }
+  }
+
+  mostrarControl() {
+    //this.mostrarCompAdmin = true;
+   this.storegeService.subirImagen('src/assets/img/logo.png');
+   console.log("se mando el mostrarcontrol")
+
+  }
+
   async getPostres() {
     this.dataService
       .getPostres()
@@ -32,30 +56,21 @@ export class MenuPostresComponent {
       })
       .catch((error: any) => console.log(error));
   }
-  agregarPostre(
-    nombre: string,
-    precio: string,
-    porcion: string,
-    img: string,
-    categoria: string
-  ) {
-    this.dataService.crerPostre(nombre, precio, porcion, img, categoria);
-  }
 
+ 
 
   filtrarPostres() {
     console.log(this.postreSeleccionado);
-    if (this.postreSeleccionado === 'todos' || this.postreSeleccionado === 'aa') {
-      this.postresFiltrado = null; 
-      setTimeout(() => this.postresFiltrado = [...this.postres], 0);
-
+    if (
+      this.postreSeleccionado === 'todos' ||
+      this.postreSeleccionado === 'aa'
+    ) {
+      this.postresFiltrado = null;
+      setTimeout(() => (this.postresFiltrado = [...this.postres]), 0);
     } else {
       this.postresFiltrado = this.postres.filter(
         (postre: any) => postre.categoria === this.postreSeleccionado
       );
-    
-   
     }
   }
- 
 }

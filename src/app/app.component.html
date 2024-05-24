@@ -39,10 +39,14 @@
         </li>
         <br />
       </ul>
+
       <li class="nav-item ms-auto" id="last-li">
-        <a routerLink="ingresar" class="nav-link" href=""
+        <a
+          routerLink="ingresar"
+          class="nav-link"
+          (click)="ingresarOSalirClick()"
           ><strong
-            ><i class="fa-solid fa-right-to-bracket"></i> Ingresar</strong
+            ><i class="fa-solid fa-right-to-bracket"></i>{{ estado }}</strong
           ></a
         >
       </li>

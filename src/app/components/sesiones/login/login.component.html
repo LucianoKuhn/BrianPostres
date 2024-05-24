@@ -1,22 +1,4 @@
 
-
-<!-- <div class="container formulario-cont">
-    <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email: </label>
-          <input placeholder="Ingrese su email." type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-          <input placeholder="Ingrese su contraseña." type="password" class="form-control" id="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-
-        <p>No tienes cuenta? 
-          <a routerLink="registrar" (click)="irRegistro()" href="">registrate aqui</a>
-        </p>
-      </form>
-</div> -->
 <div class="container formulario-cont">
   <form (ngSubmit)="onSubmit()" [formGroup]="formLogin">
       <div class="mb-3">
@@ -35,6 +17,5 @@
     </form>
 
     <button (click)="onClick()" class="btn btn-primary">Ingresa con google papu</button>
-
-    <button (click)="logOut()">irse</button>
 </div>
+
