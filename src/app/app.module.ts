@@ -15,13 +15,15 @@ import { LoginComponent } from './components/sesiones/login/login.component';
 import { RegisterComponent } from './components/sesiones/register/register.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ControlPostresComponent } from './components/menu-postres/control-postres/control-postres.component';
+import { AgregarPostreComponent } from './components/menu-postres/control-postres/agregar-postre/agregar-postre/agregar-postre.component';
+import { EditarPostreComponent } from './components/menu-postres/control-postres/editar-postre/editar-postre.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent,FooterComponent, MenuPostresComponent, LoginComponent, RegisterComponent, ControlPostresComponent ],
+  declarations: [AppComponent,FooterComponent, MenuPostresComponent, LoginComponent, RegisterComponent, ControlPostresComponent, AgregarPostreComponent, EditarPostreComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

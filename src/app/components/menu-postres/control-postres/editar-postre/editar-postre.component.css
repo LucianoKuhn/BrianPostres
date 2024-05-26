@@ -1,0 +1,15 @@
+.divEditarPostre{
+    background-color: #fdcb96;
+    border-radius: 10px;
+}
+p{
+    margin-top: 20px;
+    font-family: "Poetsen One", sans-serif;
+}
+.botonEnviar{
+    background-color: #f9b56d;
+    color: black;
+    font-family: "Poetsen One", sans-serif;
+    border: 2px solid #aa743b;
+    margin-bottom: 20px;
+}

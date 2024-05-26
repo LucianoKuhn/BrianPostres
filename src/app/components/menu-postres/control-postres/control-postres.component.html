@@ -1,32 +1,29 @@
 
-<h1 style="margin-top: 40px;">Mostrando control de postres</h1>
- <div class="container">
-  <h1> Agregar postre </h1>
-  <form (ngSubmit)="agregarPostre(nombre, precio, porcion, img, categoria)">
-      <p> Nombre </p>
-      <input name="nombre" [(ngModel)]="nombre">
-      <p> Precio </p>
-      <input name="precio" [(ngModel)]="precio">
-      <p> Categoria </p>
-      <select
-      style="cursor: pointer"
+<div class="container bg-primary tablaCrud">
+  <div *ngFor="let postre of postres, let i = index">
+    <div class="row align-items-center border border-1">
+      <div class="col-1 text-center">
+        {{ i }}
+      </div>
+      <div class="col-8">
+        {{ postre.nombre }}
+      </div>
 
-        name="selectorPostres"
-        [(ngModel)]="categoria"
-      >
-        <option value="todos">Todos</option>
-        <option value="dulce">Dulces</option>
-        <option value="salado">Salados</option>
-        <option value="budines">Budines</option>
-        <option value="tortas/tartas">Tortas/Tartas</option>
-        <option value="galletitas">Galletitas</option>
-      </select>
-        <br>
-        <p> Imagen </p>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Default file input example</label>
-          <input class="form-control" (change)="onFileSelected($event)" type="file" id="formFile">
-        </div> 
-      <button type="submit"> submit </button>
-  </form>
-</div> 
+      <div class="col-3 text-center">
+        <button (click)="editarPostre(i)">Editar</button> |
+        <button (click)="eliminarPostre(i)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mostrarEditor == true"> 
+  <app-editar-postre *ngFor="let postreS of postres" 
+  [indicePasado]='this.epico' (mostrarEditor)="recibirInformacionDelHijo($event)">
+  
+    </app-editar-postre> 
+ </div>
+
+
+<br>
+ <app-agregar-postre></app-agregar-postre> 

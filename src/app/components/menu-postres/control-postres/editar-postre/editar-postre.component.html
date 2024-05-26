@@ -1,0 +1,50 @@
+<<div class="container divEditarPostre">
+    <p style="padding-top: 20px" class="text-center h3">Editar Postre</p>
+    <form (ngSubmit)="editarPostre(nombre, precio, categoria)">
+      <p>Nombre del postre</p>
+      <input
+        type="text"
+        class="form-control"
+        name="nombre"
+        [(ngModel)]="nombre"
+        placeholder="Insertar nombre"
+      />
+  
+      <p>Precio del postre</p>
+      <input
+        type="number"
+        class="form-control"
+        name="precio"
+        placeholder="Insertar precio (sin $)"
+        [(ngModel)]="precio"
+      />
+      <p>Categoría</p>
+      <select
+        class="form-select"
+        style="cursor: pointer"
+        name="selectorPostres"
+        [(ngModel)]="categoria"
+      >
+        <option value="oculto" selected disabled>Selecciona una categoria</option>
+        <option value="todos">Todos</option>
+        <option value="dulce">Dulces</option>
+        <option value="salado">Salados</option>
+        <option value="budines">Budines</option>
+        <option value="tortas/tartas">Tortas/Tartas</option>
+        <option value="galletitas">Galletitas</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="this.errorForm !== ''">
+        {{ errorForm }}
+      </div>
+      <div class="alert alert-success" *ngIf="this.datosEnviados == true">
+        Postre editado correctamente
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto mt-5">
+        <button type="submit" class="btn btn-success botonEnviar">
+          Editar postre
+        </button>
+      </div>
+    </form>
+  </div>
+  
+

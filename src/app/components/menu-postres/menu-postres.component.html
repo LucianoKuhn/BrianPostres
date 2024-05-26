@@ -7,9 +7,9 @@
   <h1 class="h1-menu text-center rounded-pill">Carta de Precios</h1>
 
   <div class="container div_select">
-     <i class="fa-solid fa-sort"></i>
+    <i class="fa-solid fa-sort"></i>
     <select
-    style="cursor: pointer"
+      style="cursor: pointer"
       class="form-select"
       name="selectorPostres"
       [(ngModel)]="postreSeleccionado"
@@ -32,10 +32,10 @@
       data-bs-dismiss="alert"
       aria-label="Close"
     ></button>
-  </div> 
+  </div>
 
   <div class="container borde">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
+    <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
       <div class="col-6" *ngFor="let postre of postresFiltrado">
         <div class="item">
           @defer {
@@ -67,14 +67,39 @@
           }
         </div>
       </div>
-    </div> 
+    </div>  -->
   </div>
-</div> 
+</div>
+<a
+  href="https://wa.me/3446228618/?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido"
+  target="_blank"
+>
+  <svg
+    width="90"
+    height="90"
+    class="wsp-svg"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <image
+      href="../../../assets/img/wsp_logo2.png"
+      x="0"
+      y="0"
+      width="100"
+      height="100"
+    />
+  </svg>
+</a>
 
 <div class="d-flex justify-content-center">
-  <button *ngIf="administrador == false" type="button" class="btn btn-dark botonControlAdmin" (click)="mostrarControl()"> ADMINISTRAR POSTRES</button>
+  <button
+    *ngIf="administrador == false"
+    type="button"
+    class="btn btn-dark botonControlAdmin"
+    (click)="mostrarControl()"
+  >
+    ADMINISTRAR POSTRES
+  </button>
 </div>
-
 
 <app-control-postres *ngIf="mostrarCompAdmin == false"></app-control-postres>
 

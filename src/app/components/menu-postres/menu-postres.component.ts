@@ -20,7 +20,6 @@ export class MenuPostresComponent {
   constructor(
     private readonly dataService: DataService,
     private userService: UserService,
-    private storegeService: StorageService
   ) {
     this.getPostres();
     this.postreSeleccionado = 'aa';
@@ -41,10 +40,8 @@ export class MenuPostresComponent {
 
   mostrarControl() {
     //this.mostrarCompAdmin = true;
-   this.storegeService.subirImagen('src/assets/img/logo.png');
-   console.log("se mando el mostrarcontrol")
-
   }
+
 
   async getPostres() {
     this.dataService
@@ -60,7 +57,6 @@ export class MenuPostresComponent {
  
 
   filtrarPostres() {
-    console.log(this.postreSeleccionado);
     if (
       this.postreSeleccionado === 'todos' ||
       this.postreSeleccionado === 'aa'

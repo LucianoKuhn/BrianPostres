@@ -4,8 +4,15 @@ import {
   addDoc,
   collection,
   getDocs,
+  updateDoc,
+  deleteDoc,
+  doc,
   query,
 } from '@angular/fire/firestore';
+import { Subject } from 'rxjs';
+
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -35,4 +42,35 @@ export class DataService {
       await getDocs(query(collection(this.firestore, 'postres')))
     ).docs.map((postres) => postres.data());
   }
+  async getPostresID() {
+    return (
+      await getDocs(query(collection(this.firestore, 'postres')))
+    ).docs.map((postres) => postres.id);
+  }
+
+  async eliminarPostre (id:string){
+   await deleteDoc(doc(this.firestore,'postres', id));
+  }
+  async editarPostre (id:string, nombre:string, categoria:string, precio:string){
+    const Ref = doc(this.firestore, "postres", id);
+
+    await updateDoc(Ref, {
+        categoria: categoria,
+        nombre: nombre,
+        precio: precio
+    });
+   }
+
+
+
+
+//  indiceSubject = new Subject<number>();
+
+//   enviarIndice(indice: number) {
+//     this.indiceSubject.next(indice);
+//   }
+
+//   obtenerIndice() {
+//     return this.indiceSubject.asObservable();
+//   }
 }
