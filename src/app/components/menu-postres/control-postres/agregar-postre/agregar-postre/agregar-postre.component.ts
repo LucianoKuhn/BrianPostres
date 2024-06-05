@@ -13,7 +13,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 })
 export class AgregarPostreComponent {
 
-  constructor(private dataService: DataService, private pb: FormBuilder) {}
+  constructor(private dataService: DataService) {}
 
   nombre: string = '';
   categoria: string = '';
@@ -37,7 +37,7 @@ export class AgregarPostreComponent {
       const file: File = event.target.files[0];
       this.file2 = file;
     } catch (error) {
-      console.error('Error al inicializar Firebase Storage:', error);
+    //  console.error('Error al inicializar Firebase Storage:', error);
     }
   }
   async subirFoto() {
@@ -48,10 +48,10 @@ export class AgregarPostreComponent {
       try {
         const snapshot = await uploadBytes(storageRef, this.file2);
         const url = await getDownloadURL(storageRef); // Obtener la URL de descarga después de la subida
-        console.log('cadena de la imagen1', url);
+      //  console.log('cadena de la imagen1', url);
         this.img = url;
       } catch (error) {
-        console.error('Error al subir el archivo:', error);
+//console.error('Error al subir el archivo:', error);
       }
     }
   }
@@ -64,10 +64,10 @@ export class AgregarPostreComponent {
     categoria: string
   ) {
     try {
-      if(this.nombre !== '' && this.precio !== null && this.categoria !== 'oculto'){
+      if(this.nombre !== '' && this.precio !== "" && this.categoria !== 'oculto'){
         const imgUrl = await this.subirFoto();
         this.dataService.crerPostre(nombre, precio, porcion, this.img, categoria);
-        console.log('subi todo a la db');
+      //  console.log('subi todo a la db');
         this.datosEnviados = true;
         this.errorForm = '';
         this.nombre= '';
@@ -77,7 +77,7 @@ export class AgregarPostreComponent {
         this.errorForm = 'Debes de completar todos los campos.';
       }
     } catch (error) {
-      console.error('Error al agregar el postre:', error);
+     // console.error('Error al agregar el postre:', error);
     }
   }
 }

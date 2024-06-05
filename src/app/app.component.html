@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
     <a class="nav_text nav-link" routerLink=""
-      ><strong>BrianPostres | </strong></a
+      ><strong>BrianPostres </strong></a
     >
     <button
       class="navbar-toggler"
@@ -14,7 +14,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div #navbar class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item" id="wsp_nav">
           <a
@@ -37,10 +37,19 @@
             ></a
           >
         </li>
-        <br />
+        <li class="nav-item" id="ig_nav" *ngIf="isAuthenticated == true">
+          <a
+            class="nav-link"
+            target="_blank"
+            routerLink="administrador"
+            ><strong
+              ><i class="fa-solid fa-user-tie"></i> Panel de Administrador</strong
+            ></a
+          >
+        </li>
+  <br>   
       </ul>
-
-      <li class="nav-item ms-auto" id="last-li">
+     <li class="nav-item ms-auto" id="last-li">
         <a
           routerLink="ingresar"
           class="nav-link"
@@ -50,6 +59,8 @@
           ></a
         >
       </li>
+
+ 
     </div>
   </div>
 </nav>

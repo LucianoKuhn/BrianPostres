@@ -9,7 +9,7 @@ import {
   doc,
   query,
 } from '@angular/fire/firestore';
-import { Subject } from 'rxjs';
+
 
 
 
@@ -34,8 +34,10 @@ export class DataService {
       categoria: categoria,
       img: img,
     });
-    console.log('Document written with ID: ', docRef.id);
+    //console.log('Document written with ID: ', docRef.id);
   }
+
+  
 
   async getPostres() {
     return (

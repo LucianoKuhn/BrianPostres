@@ -1,4 +1,4 @@
-<<div class="container divEditarPostre">
+<div class="container divEditarPostre">
     <p style="padding-top: 20px" class="text-center h3">Editar Postre</p>
     <form (ngSubmit)="editarPostre(nombre, precio, categoria)">
       <p>Nombre del postre</p>
@@ -12,7 +12,7 @@
   
       <p>Precio del postre</p>
       <input
-        type="number"
+        type="name"
         class="form-control"
         name="precio"
         placeholder="Insertar precio (sin $)"
@@ -42,6 +42,9 @@
       <div class="d-grid gap-2 col-6 mx-auto mt-5">
         <button type="submit" class="btn btn-success botonEnviar">
           Editar postre
+        </button>
+        <button type="button" (click)="cerrar()" class="btn btn-danger btnCerrar botonEnviar">
+          Cancelar
         </button>
       </div>
     </form>

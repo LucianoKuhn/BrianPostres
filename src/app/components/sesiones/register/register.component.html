@@ -1,19 +1,71 @@
 
-<hr>
-<hr>
+<div class="container formulario-cont shadow-lg">
+  <h1 class="text-center pt-5">Registrarse</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="formReg">
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-envelope"></i> Ingrese su mail:</label
+      >
+      <input
+        placeholder="Ingrese su email"
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-envelope"></i> Nombre:</label
+      >
+      <input
+        placeholder="Ingrese su nombre."
+        type="name"
+        class="form-control"
+        id="email2"
+        formControlName="nombre"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-lock"></i> Contraseña:</label
+      >
+      <input
+        placeholder="Ingrese su contraseña"
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-lock"></i> Reingrese contraseña:</label
+      >
+      <input
+        placeholder="Reingrese su contraseña"
+        type="password"
+        class="form-control"
+        id="password2"
+        formControlName="password2"
+      />
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="mostrarAlert">
+      {{tipoError}}
+    </div>
+    <div class="alert alert-success" *ngIf="this.registradoCorrectamente == true">
+      ¡Te registraste correctamente!
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto mt-5  shadow">
+      <button type="submit" class="btn btn-primary btnIngresar btn-lg">
+        Registrarse
+      </button>
+    </div>
+    
 
-<h1>Registro</h1>
 
-<div class="container formulario-cont">
-    <form (ngSubmit)="onSubmit()" [formGroup]="formReg">
-        <div class="mb-3">
-          <label  class="form-label">Email: </label>
-          <input placeholder="Ingrese su email." type="email" class="form-control" id="email" formControlName="email" >
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Contraseña:</label>
-          <input placeholder="Ingrese su contraseña." type="password" class="form-control" id="password" formControlName="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
-      </form>
+ 
+  </form>
 </div>
+
+

@@ -1,5 +1,5 @@
 .divEditarPostre{
-    background-color: #fdcb96;
+    background-color: #acfd96;
     border-radius: 10px;
 }
 p{
@@ -7,9 +7,17 @@ p{
     font-family: "Poetsen One", sans-serif;
 }
 .botonEnviar{
-    background-color: #f9b56d;
+    background-color: #2eb25a;
     color: black;
     font-family: "Poetsen One", sans-serif;
-    border: 2px solid #aa743b;
+    border: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+.btnCerrar{
+    background-color: #d23838;
+    color: black;
+    font-family: "Poetsen One", sans-serif;
+    border: 2px solid #000000;
     margin-bottom: 20px;
 }

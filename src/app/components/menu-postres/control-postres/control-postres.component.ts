@@ -9,22 +9,27 @@ import { DataService } from 'src/app/services/data.service';
   styleUrl: './control-postres.component.css',
 })
 export class ControlPostresComponent {
-  constructor(private dataService: DataService) {
-    this.getPostres();
-    this.getPostresID();
-  }
+
 
   postres: any = {};
   postresID: any = {};
   epico:number =0;
   mostrarEditor: boolean = false;
+ 
+
+  constructor(private dataService: DataService) {
+    this.getPostres();
+    this.getPostresID();
+    
+  }
+
 
   async getPostres() {
     this.dataService
       .getPostres()
       .then((postres: any) => {
         this.postres = postres;
-        console.log('postres:', postres);
+      //  console.log('postres:', postres);
       })
       .catch((error: any) => console.log(error));
   }
@@ -38,7 +43,7 @@ export class ControlPostresComponent {
   }
 
   eliminarPostre(i:number){
-    console.log(this.postresID[i]);
+   // console.log(this.postresID[i]);
     this.dataService.eliminarPostre(this.postresID[i]);
     this.getPostres();
   }
@@ -46,10 +51,20 @@ export class ControlPostresComponent {
   editarPostre(i:number){
   this.mostrarEditor = true;
   this.epico = i;
+  this.scrollToEditor();
+  }
+
+  scrollToEditor() {
+    const editorElement = document.getElementById('btnEditar');
+    if (editorElement) {
+      editorElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   recibirInformacionDelHijo(informacion: boolean) {
     this.mostrarEditor = informacion;
     this.getPostres();
   }
+
+
 }

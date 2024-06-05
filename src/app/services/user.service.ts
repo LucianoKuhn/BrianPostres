@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 
-
 import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  signInWithPopup,
-  GoogleAuthProvider,
 } from '@angular/fire/auth';
+import { onAuthStateChanged, updateProfile } from 'firebase/auth';
+
 import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,26 @@ export class UserService {
 
   sesionIniciada = false;
 
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth) {}
+
+  ponerNombre(nombre:string){
+    let authn = this.auth.currentUser;
+    if(authn){
+      updateProfile(authn,{displayName: nombre }).then(()=>{
+      })
+    } 
+  }
+  obtenerNombre(){
+    let authn = this.auth.currentUser;
+    let nombre;
+    if(authn){
+      nombre = authn.displayName ?? '';
+      localStorage.setItem("nombre", nombre);
+    }
+  }
+
+  async login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   emitirCambioSesion(estado: boolean) {
@@ -31,13 +50,9 @@ export class UserService {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  login({ email, password }: any) {
-    return signInWithEmailAndPassword(this.auth, email, password);
-  }
-
-  loginWithGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider());
-  }
+  // loginWithGoogle() {
+  //   return signInWithPopup(this.auth, new GoogleAuthProvider());
+  // }
   logOut() {
     return signOut(this.auth);
   }
@@ -45,5 +60,18 @@ export class UserService {
   async getCurrentUserEmail(): Promise<string | null> {
     const user = await this.auth.currentUser;
     return user ? user.email : null;
+  }
+  hayUsuario() {
+    return new Promise((resolve, reject) => {
+      onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }, (error) => {
+        reject(error);
+      });
+    });
   }
 }

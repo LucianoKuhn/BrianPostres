@@ -19,9 +19,6 @@ import { AgregarPostreComponent } from './components/menu-postres/control-postre
 import { EditarPostreComponent } from './components/menu-postres/control-postres/editar-postre/editar-postre.component';
 
 
-
-
-
 @NgModule({
   declarations: [AppComponent,FooterComponent, MenuPostresComponent, LoginComponent, RegisterComponent, ControlPostresComponent, AgregarPostreComponent, EditarPostreComponent ],
   imports: [

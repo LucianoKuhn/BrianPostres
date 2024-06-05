@@ -1,21 +1,53 @@
 
-<div class="container formulario-cont">
+<div class="container formulario-cont shadow-lg">
+  <h1 class="text-center pt-5">Ingresar</h1>
   <form (ngSubmit)="onSubmit()" [formGroup]="formLogin">
-      <div class="mb-3">
-        <label  class="form-label">Email: </label>
-        <input placeholder="Ingrese su email." type="email" class="form-control" id="email" formControlName="email" >
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Contraseña:</label>
-        <input placeholder="Ingrese su contraseña." type="password" class="form-control" id="password" formControlName="password">
-      </div>
-      <button type="submit" class="btn btn-primary">Ingresar</button>
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-envelope"></i> Email:</label
+      >
+      <input
+        placeholder="Ingrese su email"
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label"
+        ><i class="fa-solid fa-lock"></i> Contraseña:</label
+      >
+      <input
+        placeholder="Ingrese su contraseña"
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="mostrarAlert">
+      {{tipoError}}
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto mt-5 shadow">
+      <button type="submit" class="btn btn-primary btnIngresar btn-lg">
+        Ingresar
+      </button>
+    </div>
+    <!-- <p class="text-center">_</p>
+    <div class="mx-auto d-flex justify-content-center mt-3">
+      <button (click)="onClick()" class="btn btn-primary btnGoogle">
+        <i class="fa-brands fa-google"></i> Ingresar con Google
+      </button>
+    </div> -->
 
-      <p>No tienes cuenta? 
-        <a routerLink="registrar" (click)="irRegistro()" href="">registrate aqui</a>
-      </p>
-    </form>
-
-    <button (click)="onClick()" class="btn btn-primary">Ingresa con google papu</button>
+    <p class="text-center mt-5 pb-2">
+      ¿No tienes cuenta?
+      <a routerLink="registrar" class="link-underline-dark link-offset-2 link-underline-opacity-50" (click)="irRegistro()"> Registrate aquí.</a>
+    </p>
+  </form>
+  <div class="alert alert-secondary" role="alert">
+    Por el momento iniciar sesión no tiene ningún efecto.
+  </div>
 </div>
 

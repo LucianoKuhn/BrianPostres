@@ -23,7 +23,7 @@ export class EditarPostreComponent {
   async ngOnInit() {
     await this.getPostres();
     await this.getPostresID();
-    console.log(this.indicePasado);
+   // console.log(this.indicePasado);
     this.cargarPostre();
   }
 
@@ -31,7 +31,7 @@ export class EditarPostreComponent {
     try {
       this.postres = await this.dataService.getPostres();
     } catch (error) {
-      console.log(error);
+    //  console.log(error);
     }
   }
   async getPostresID() {
@@ -67,7 +67,12 @@ export class EditarPostreComponent {
         this.errorForm = 'Debes de completar todos los campos.';
       }
     } catch (error) {
-      console.error('Error al agregar el postre:', error);
+    //  console.error('Error al agregar el postre:', error);
     }
+  }
+  cerrar(){
+    setTimeout(() => {
+      this.mostrarEditor.emit(false);
+    }, 0);
   }
 }

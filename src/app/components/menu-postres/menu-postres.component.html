@@ -4,6 +4,7 @@
     alt="logo"
     class="img_logo pt-3 mx-auto d-block"
   />
+
   <h1 class="h1-menu text-center rounded-pill">Carta de Precios</h1>
 
   <div class="container div_select">
@@ -24,6 +25,7 @@
       <option value="galletitas">Galletitas</option>
     </select>
   </div>
+  <p *ngIf="mostrarUsuario" class="mt-3 text-center"> Bienvenido {{nombreUsuario}}, ¿Qué vas a pedir hoy? </p>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>Por el momento</strong> algunas imágenes pueden ser ilustrativas.
     <button
@@ -35,7 +37,7 @@
   </div>
 
   <div class="container borde">
-    <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 text-center mt-3">
       <div class="col-6" *ngFor="let postre of postresFiltrado">
         <div class="item">
           @defer {
@@ -53,9 +55,7 @@
               <li class="list-group-item contenedor_precio">
                 ${{ postre.precio }}
               </li>
-               <li class="list-group-item contenedor_precio">
-                  {{ postre.porcion }}
-                </li> 
+
             </ul>
           </div>
           } @placeholder (minimum 1000ms) {
@@ -67,7 +67,7 @@
           }
         </div>
       </div>
-    </div>  -->
+    </div> 
   </div>
 </div>
 <a
@@ -90,23 +90,10 @@
   </svg>
 </a>
 
-<div class="d-flex justify-content-center">
-  <button
-    *ngIf="administrador == false"
-    type="button"
-    class="btn btn-dark botonControlAdmin"
-    (click)="mostrarControl()"
-  >
-    ADMINISTRAR POSTRES
-  </button>
-</div>
-
-<app-control-postres *ngIf="mostrarCompAdmin == false"></app-control-postres>
-
-<!-- <div class="item">
+<div class="item">
   @defer {
   <app-footer></app-footer>
   } @placeholder (minimum 4000ms) {
   <ngx-skeleton-loader [animation]="false" [theme]="{ height: '0px' }" />
   }
-</div> -->
+</div> 

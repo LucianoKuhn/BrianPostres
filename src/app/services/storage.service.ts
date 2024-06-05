@@ -12,7 +12,7 @@ export class StorageService {
     try {
       this.storage = getStorage();
     } catch (error) {
-      console.error('Error al inicializar Firebase Storage:', error);
+     // console.error('Error al inicializar Firebase Storage:', error);
     }
   }
 
@@ -33,14 +33,14 @@ export class StorageService {
 
         uploadBytes(storageRef, blob)
           .then((snapshot) => {
-            console.log('¡Imagen cargada con éxito!');
+           // console.log('¡Imagen cargada con éxito!');
           })
           .catch((error) => {
-            console.error('Error al cargar la imagen:', error);
+          //  console.error('Error al cargar la imagen:', error);
           });
       })
       .catch((error) => {
-        console.error('Error al obtener la imagen:', error);
+       // console.error('Error al obtener la imagen:', error);
       });
   }
 }

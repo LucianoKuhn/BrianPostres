@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
-
-import { ChangeDetectorRef } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-menu-postres',
@@ -16,46 +13,53 @@ export class MenuPostresComponent {
   postreSeleccionado = '';
   administrador = false;
   mostrarCompAdmin = false;
+  nombreUsuario: string | null = '';
+  mostrarUsuario: boolean = false;
+  estadoRecibido!: boolean;
 
   constructor(
     private readonly dataService: DataService,
-    private userService: UserService,
+    private userService: UserService
   ) {
     this.getPostres();
     this.postreSeleccionado = 'aa';
     this.comprobarAdmin();
   }
+  ngOnInit() {
+    this.mostrarNombre();
+
+  }
 
   async comprobarAdmin() {
     try {
       const email = await this.userService.getCurrentUserEmail();
-      console.log('Email: ', email);
+      //console.log('Email: ', email);
+
       if (email === 'brianschmunk04@gmail.com') {
         this.administrador = true;
       }
     } catch (error) {
-      console.error('Error obtaining email:', error);
+      //console.error('Error obtaining email:', error);
     }
   }
 
-  mostrarControl() {
-    //this.mostrarCompAdmin = true;
+  scrollToEditor() {
+    const editorElement = document.getElementById('mostrarControl');
+    if (editorElement) {
+      editorElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
-
 
   async getPostres() {
     this.dataService
       .getPostres()
       .then((postres: any) => {
         this.postres = postres;
-        console.log('postres:', postres);
+       // console.log('postres:', postres);
         this.filtrarPostres();
       })
       .catch((error: any) => console.log(error));
   }
-
- 
-
   filtrarPostres() {
     if (
       this.postreSeleccionado === 'todos' ||
@@ -68,5 +72,17 @@ export class MenuPostresComponent {
         (postre: any) => postre.categoria === this.postreSeleccionado
       );
     }
+  }
+
+  mostrarNombre() {
+    this.userService.obtenerNombre();
+    this.nombreUsuario = localStorage.getItem('nombre');
+   // console.log( this.nombreUsuario)
+    if(this.nombreUsuario !== null && this.nombreUsuario !== ""){
+      this.mostrarUsuario = true;
+    //  console.log('nombre de usuario: ', this.nombreUsuario);
+    } else this.mostrarUsuario = false;
+
+   
   }
 }

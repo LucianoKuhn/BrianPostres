@@ -1,5 +1,7 @@
-
-<div class="container bg-primary tablaCrud">
+<br>
+<br>
+<div class="container tablaPostres">
+ 
   <div *ngFor="let postre of postres, let i = index">
     <div class="row align-items-center border border-1">
       <div class="col-1 text-center">
@@ -10,19 +12,22 @@
       </div>
 
       <div class="col-3 text-center">
-        <button (click)="editarPostre(i)">Editar</button> |
-        <button (click)="eliminarPostre(i)">Eliminar</button>
+        <button class="btn btn-dark" style="margin-right: 10px;" (click)="editarPostre(i)">Editar</button> 
+        <button class="btn btn-danger" (click)="eliminarPostre(i)">Eliminar</button>
       </div>
     </div>
   </div>
 </div>
 
-<div *ngIf="mostrarEditor == true"> 
-  <app-editar-postre *ngFor="let postreS of postres" 
-  [indicePasado]='this.epico' (mostrarEditor)="recibirInformacionDelHijo($event)">
-  
-    </app-editar-postre> 
- </div>
+<div id="btnEditar">
+  <div *ngIf="mostrarEditor == true"> 
+    <app-editar-postre 
+    [indicePasado]='this.epico' (mostrarEditor)="recibirInformacionDelHijo($event)">
+    
+      </app-editar-postre> 
+   </div>
+</div>
+
 
 
 <br>
