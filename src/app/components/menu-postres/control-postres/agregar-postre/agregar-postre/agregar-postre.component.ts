@@ -66,7 +66,7 @@ export class AgregarPostreComponent {
     try {
       if(this.nombre !== '' && this.precio !== "" && this.categoria !== 'oculto'){
         const imgUrl = await this.subirFoto();
-        this.dataService.crerPostre(nombre, precio, porcion, this.img, categoria);
+        this.dataService.crerPostre(nombre, precio, porcion, this.img, categoria, true);
       //  console.log('subi todo a la db');
         this.datosEnviados = true;
         this.errorForm = '';

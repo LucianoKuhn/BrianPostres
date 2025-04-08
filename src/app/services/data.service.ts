@@ -25,7 +25,8 @@ export class DataService {
     precio: string,
     porcion: string,
     img: string,
-    categoria: string
+    categoria: string, 
+    visible: boolean
   ) {
     const docRef = await addDoc(collection(this.firestore, 'postres'), {
       nombre: nombre,
@@ -33,6 +34,7 @@ export class DataService {
       porcion: porcion,
       categoria: categoria,
       img: img,
+      visible:visible
     });
     //console.log('Document written with ID: ', docRef.id);
   }
@@ -49,6 +51,7 @@ export class DataService {
       await getDocs(query(collection(this.firestore, 'postres')))
     ).docs.map((postres) => postres.id);
   }
+ 
 
   async eliminarPostre (id:string){
    await deleteDoc(doc(this.firestore,'postres', id));
@@ -60,6 +63,14 @@ export class DataService {
         categoria: categoria,
         nombre: nombre,
         precio: precio
+    });
+   }
+
+   async cambiarVisibilidadPostre (id:string, visible:boolean){
+    const Ref = doc(this.firestore, "postres", id);
+
+    await updateDoc(Ref, {
+       visible:visible
     });
    }
 

@@ -1,34 +1,57 @@
-<br>
-<br>
-<div class="container tablaPostres">
- 
-  <div *ngFor="let postre of postres, let i = index">
-    <div class="row align-items-center border border-1">
-      <div class="col-1 text-center">
+<br />
+<br />
+<div class="mt-2 container tablaPostres">
+  <div *ngFor="let postre of postres; let i = index">
+    <div class="p-1 row align-items-center border border-1 border-black">
+      <div class="col-1 text-center bg-dark py-4 px-2 rounded text-white">
         {{ i }}
       </div>
-      <div class="col-8">
+      <div class="col-3 me-3 ">
         {{ postre.nombre }}
       </div>
 
-      <div class="col-3 text-center">
-        <button class="btn btn-dark" style="margin-right: 10px;" (click)="editarPostre(i)">Editar</button> 
-        <button class="btn btn-danger" (click)="eliminarPostre(i)">Eliminar</button>
+      <div class="col-4 text-center bg-dark rounded mx-0 py-2">
+        <button
+          class="btn btn-dark border"
+          style="margin-right: 10px"
+          (click)="editarPostre(i)"
+        >
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+        
+        <button class="btn btn-danger border" (click)="eliminarPostre(i)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+
+      <div class="ms-2 px-2 py-2 col-3 d-flex justify-content-end align-items-center form-check form-switch bg-dark rounded "> 
+      
+        <i class="fa-solid fa-eye" style="font-size: 1.5rem; color:white;"></i>
+                <input
+                style="font-size: 1.5rem; margin-left: 10px;"
+          class="form-check-input "
+          type="checkbox"
+          role="switch"
+          [checked]="postre.visible"
+          (change)="onToggleActivo(postre, i)"
+        />
+      </div> 
+  
+      
       </div>
     </div>
   </div>
-</div>
+
 
 <div id="btnEditar">
-  <div *ngIf="mostrarEditor == true"> 
-    <app-editar-postre 
-    [indicePasado]='this.epico' (mostrarEditor)="recibirInformacionDelHijo($event)">
-    
-      </app-editar-postre> 
-   </div>
+  <div *ngIf="mostrarEditor == true">
+    <app-editar-postre
+      [indicePasado]="this.epico"
+      (mostrarEditor)="recibirInformacionDelHijo($event)"
+    >
+    </app-editar-postre>
+  </div>
 </div>
 
-
-
-<br>
- <app-agregar-postre></app-agregar-postre> 
+<br />
+<app-agregar-postre></app-agregar-postre>

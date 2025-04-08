@@ -54,7 +54,7 @@ export class MenuPostresComponent {
     this.dataService
       .getPostres()
       .then((postres: any) => {
-        this.postres = postres;
+        this.postres = postres.filter((postre:any)=> postre.visible);
        // console.log('postres:', postres);
         this.filtrarPostres();
       })

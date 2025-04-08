@@ -48,6 +48,13 @@ export class ControlPostresComponent {
     this.getPostres();
   }
 
+  onToggleActivo(item: any, i:any) {
+    item.visible = !item.visible;
+    this.dataService.cambiarVisibilidadPostre(this.postresID[i], item.visible);  
+    this.getPostres(); 
+    console.log("visibilidad cambiada")
+  }
+
   editarPostre(i:number){
   this.mostrarEditor = true;
   this.epico = i;
